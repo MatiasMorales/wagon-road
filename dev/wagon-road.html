@@ -599,7 +599,7 @@ body:has(#title:not([hidden])) #buildTag, body:has(#opts:not([hidden])) #buildTa
   <div class="sheet choiceSheet"><div class="bigseal" id="choiceSeal">使</div><h2 id="choiceT"></h2><p class="lead" id="choiceP"></p><p class="say" id="choiceSay"></p><div class="choiceOpts" id="choiceOpts"></div></div>
 </div>
 <div id="speedChip" hidden></div>
-<div id="buildTag" class="buildTag">Build 82 · dev · 1 Oct 2026</div>
+<div id="buildTag" class="buildTag">Build 83 · dev · 4 Oct 2026</div>
 
 <div id="smap" class="overlay" hidden>
   <div class="sheet mapSheet">
@@ -6357,7 +6357,9 @@ function applyPalisades() {
 let circling = null;
 // the ground round each raider pass where no camp may be pitched, drawn while you choose
 const passZones = new THREE.Group(); scene.add(passZones);
-const PASS_KEEP = 27;
+// 18 (was 27): Matias found the circles too big to read where a camp could go; warbands timed to arrive together already
+// take away most of what camping by a pass used to win (2026-10-04, matched to the Unity port)
+const PASS_KEEP = 18;
 function drawPassZones() {
   while (passZones.children.length) { const m = passZones.children.pop(); m.geometry.dispose(); }
   const mat = new THREE.MeshBasicMaterial({ color: '#d2462f', transparent: true, opacity: 0.45, depthWrite: false, depthTest: false });
