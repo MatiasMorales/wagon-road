@@ -150,6 +150,7 @@
             loadingContainer.style.display = "none";
           }
         }).then((unityInstance) => {
+                window.unityGame = unityInstance;
                 document.querySelector("#unity-fullscreen-button").onclick = () => {
                   unityInstance.SetFullscreen(1);
                 };
